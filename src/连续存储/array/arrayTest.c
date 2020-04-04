@@ -11,6 +11,25 @@ int main(void)
 	struct Arr arr;
 
 	init_arr(&arr, 6);//结构体相互赋值是复制内存值
+
+	/*
+	if (append_arr(&arr, 1))
+	{
+		printf("追加成功\n");
+	}
+	else
+	{
+		printf("追加失败\n");
+	}
+	*/
+	append_arr(&arr, 1);
+	append_arr(&arr, 2);
+	append_arr(&arr, 3);
+	append_arr(&arr, 4);
+	append_arr(&arr, 5);
+	//append_arr(&arr, 6);
+	insert_arr(&arr, 99, 7);
+
 	show_arr(&arr);
 
 	return 0;
