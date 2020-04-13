@@ -7,13 +7,13 @@ struct Arr
 	int cnt;//当前数组有效元素的个数
 };
 
-void init_arr(struct Arr* pArr, int len);
+bool init_arr(struct Arr* pArr, int len);
 bool append_arr(struct Arr* pArr, int val);
 bool insert_arr(struct Arr* pArr, int val, int pos);
-bool delete_arr();
+bool delete_arr(struct Arr* pArr, int pos, int* pVal);
 int get();
 bool is_empty(struct Arr* pArr);
 bool is_full(struct Arr* pArr);
-void sort_arr();
+void sort_arr(struct Arr* pArr);
 void show_arr(struct Arr* pArr);
-void inversion_arr();
+void inversion_arr(struct Arr* pArr);

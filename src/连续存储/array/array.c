@@ -4,7 +4,7 @@
 #include<malloc.h>//°üº¬ÁËstdlib.h
 #include<stdlib.h>//°üº¬ÁËexitº¯Êý
 
-void init_arr(struct Arr* pArr, int len)
+bool init_arr(struct Arr* pArr, int len)
 {
 	pArr->pBase = (int *) malloc(sizeof(int) * len);
 
@@ -17,6 +17,7 @@ void init_arr(struct Arr* pArr, int len)
 	{
 		pArr->len = len;
 		pArr->cnt = 0;
+		return true;
 	}
 }
 
@@ -65,8 +66,28 @@ bool insert_arr(struct Arr* pArr, int val, int pos) //posµÄÖµ´Ó1¿ªÊ¼£¬²åÈëµ½posÇ
 	}
 }
 
-bool delete_arr()
+bool delete_arr(struct Arr* pArr,  int pos, int* pVal)
 {
+	if (is_empty(pArr))
+	{
+		printf("Êý×éÎª¿Õ£¬ÎÞ·¨É¾³ý");
+		return false;
+	}
+
+	if (pos<1 || pos > pArr->cnt)
+	{
+		printf("É¾³ýÏÂ±êÓÐÎó");
+		return false;
+	}
+
+	*pVal = pArr->pBase[pos - 1];
+	for (int i = pos; i < pArr->cnt; i++)
+	{
+		pArr->pBase[i - 1] = pArr->pBase[i];	
+	}
+	pArr->cnt -= 1;
+
+	return true;
 }
 
 int get()
@@ -97,8 +118,22 @@ bool is_full(struct Arr* pArr)
 	}
 }
 
-void sort_arr()
+void sort_arr(struct Arr* pArr)
 {
+	int temp;
+
+	for (int i = 0; i < pArr->cnt; i++)
+	{
+		for (int j = i+1; j < pArr->cnt; j++)
+		{
+			if (pArr->pBase[i] > pArr->pBase[j])
+			{
+				temp = pArr->pBase[i];
+				pArr->pBase[i] = pArr->pBase[j];
+				pArr->pBase[j] = temp;
+			}
+		}
+	}
 }
 
 void show_arr(struct Arr* pArr)
@@ -117,6 +152,14 @@ void show_arr(struct Arr* pArr)
 	}
 }
 
-void inversion_arr()
+void inversion_arr(struct Arr* pArr)
 {
+	int temp;
+	int i, j;
+	for (i = 0, j = pArr->cnt - 1; i < j; i++, j--)
+	{
+		temp = pArr->pBase[i];
+		pArr->pBase[i] = pArr->pBase[j];
+		pArr->pBase[j] = temp;
+	}
 }
