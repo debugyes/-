@@ -3,8 +3,6 @@
 #include<stdbool.h>
 #include"arrayList.h"
 
-//定义了一个数据类型，该数据类型的名字叫struct Arr，该数据类型有三个成员，分别式pBase，len，cnt
-
 
 int main(void)
 {

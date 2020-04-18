@@ -1,8 +1,9 @@
 #pragma once
+//定义了一个数据类型，该数据类型的名字叫struct Arr，该数据类型有三个成员，分别式pBase，len，cnt
 
 struct Arr
 {
-	int* pBase;//存储的式数组第一个元素的地址
+	int* pBase;//存储数组第一个元素的地址
 	int len;//数组所能容纳的最大元素的个数
 	int cnt;//当前数组有效元素的个数
 };

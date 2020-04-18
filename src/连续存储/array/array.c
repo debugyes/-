@@ -6,7 +6,7 @@
 
 bool init_arr(struct Arr* pArr, int len)
 {
-	pArr->pBase = (int *) malloc(sizeof(int) * len);
+	pArr->pBase = (int*)malloc(sizeof(int) * len);
 
 	if (pArr->pBase == NULL)//ÅĞ¶ÏÊÇ·ñ·ÖÅä³É¹¦
 	{
@@ -47,7 +47,9 @@ bool insert_arr(struct Arr* pArr, int val, int pos) //posµÄÖµ´Ó1¿ªÊ¼£¬²åÈëµ½posÇ
 		return false;
 	}
 
-	if (pos < 1 || (pos > (pArr->cnt+1)))//×î¶àÖ»ÄÜÔÚ×îºóÒ»¸öÔªËØºóÃæÒ»¸öÎ»ÖÃ²åÈëÔªËØ£¬²»ÄÜ¸ô×Å¿ÕÎ»²åÈëÔªËØ
+	//×î¶àÖ»ÄÜÔÚ×îºóÒ»¸öÔªËØºóÃæÒ»¸öÎ»ÖÃ²åÈëÔªËØ£¬²»ÄÜ¸ô×Å¿ÕÎ»²åÈëÔªËØ
+	//Èç¹ûÔÚ×îºóÒ»¸öÔªËØºóÃæ²åÈëÒ»¸öÔªËØ£¬ÆäÊµºÍappendµÄ¹¦ÄÜÒ»ÑùÁË
+	if (pos < 1 || (pos > (pArr->cnt+1)))
 	{
 		printf("²åÈëÊ§°Ü\n");
 		return false;
@@ -55,7 +57,7 @@ bool insert_arr(struct Arr* pArr, int val, int pos) //posµÄÖµ´Ó1¿ªÊ¼£¬²åÈëµ½posÇ
 
 	else
 	{
-		for (int i = pArr->cnt -1; i >= pos-1; i--)//³¤¶ÈlenºÍÓĞĞ§ÔªËØ¸öÊıcntÏàµÈ¾Í´ú±íÂúÁË
+		for (int i = pArr->cnt -1; i >= pos-1; i--)
 		{
 			pArr->pBase[i+1] = pArr->pBase[i];
 		}
@@ -108,7 +110,7 @@ bool is_empty(struct Arr * pArr)
 
 bool is_full(struct Arr* pArr)
 {
-	if (pArr->cnt == pArr->len)
+	if (pArr->cnt == pArr->len)//³¤¶ÈlenºÍÓĞĞ§ÔªËØ¸öÊıcntÏàµÈ¾Í´ú±íÂúÁË
 	{
 		return true;
 	}
