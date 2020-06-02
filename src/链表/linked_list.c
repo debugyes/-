@@ -22,7 +22,7 @@ PNODE creat_list(void)
 	for (int i = 0; i < len; i++)
 	{
 		printf("请输入第%d个节点的值：", i + 1);
-		printf("%d", &val);
+		scanf("%d", &val);
 
 		PNODE pNew = (PNODE)malloc(sizeof(NODE));
 
@@ -37,5 +37,12 @@ PNODE creat_list(void)
 
 void traverse_list(PNODE pHead)
 {
+	PNODE p = pHead->pNext;
 
+	while (p != NULL)
+	{
+		printf("%d  ", p->data);
+		p = p->pNext;
+	}
+	printf("\n");
 }
