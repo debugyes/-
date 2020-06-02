@@ -1,4 +1,5 @@
 #include "linked_list_header.h"
+
 PNODE creat_list(void)
 {
 	int len;//用来存放有效节点的个数
@@ -18,23 +19,16 @@ PNODE creat_list(void)
 
 	printf("请输入您需要生成的链表节点的个数：len=");
 	scanf("%d", &len);
-
-
 	for (int i = 0; i < len; i++)
 	{
 		printf("请输入第%d个节点的值：", i + 1);
 		printf("%d", &val);
 
 		PNODE pNew = (PNODE)malloc(sizeof(NODE));
-		if (pHead == NULL)
-		{
-			printf("分配失败，程序终止");
-			exit(-1);
-		}
 
-		pNew->data = val;
-		pTail->pNext = pNew;
-		pTail = pNew;
+		pNew->data = val;//把值放进新节点的数据域
+		pTail->pNext = pNew;//pTail(实际上目前是pHEAD)的指针域指向pNew，pNew挂在pHEAD的后面
+		pTail = pNew;//把pNew赋值给pTail，pNew现在是最后一个节点
 		pTail->pNext = NULL;
 	}
 
