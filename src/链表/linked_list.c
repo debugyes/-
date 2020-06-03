@@ -46,3 +46,34 @@ void traverse_list(PNODE pHead)
 	}
 	printf("\n");
 }
+
+bool is_empty(PNODE pHead)
+{
+	if (pHead->pNext == NULL)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+int length_list(PNODE pHead)
+{
+	int count = 0;
+	PNODE p = pHead->pNext;
+
+	while (p != NULL)
+	{
+		count++;
+		p = p->pNext;
+	}
+
+	return count;
+}
+
+void sort_list(PNODE pHead)
+{
+
+}
