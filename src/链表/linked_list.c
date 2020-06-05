@@ -75,5 +75,56 @@ int length_list(PNODE pHead)
 
 void sort_list(PNODE pHead)
 {
+	int i, j, t;
+	PNODE p, q;
+	int length = length_list(pHead);
+
+	for (i = 0, p=pHead->pNext; i < length-1; i++, p = p->pNext)
+	{
+		for (j = i + 1, q = p->pNext; j < length; j++, q = q->pNext)
+		{
+			if (p->data > q->data)
+			{
+				t = p->data;
+				p->data = q->data;
+				q->data = t;
+			}
+		}
+	}
+}
+
+//在pHead所指向链表的前面插入一个新的节点，该节点的值是val,pos从1开始
+bool insert_list(PNODE pHead, int pos, int val)
+{
+	int i = 0;
+	PNODE p = pHead;
+	while (p != NULL && i < pos-1)
+	{
+		p = p->pNext;
+		i++;
+	}
+
+	if (i > pos - 1 || p == NULL)
+	{
+		return false;
+	}
+
+	PNODE pNew = (PNODE)malloc(sizeof(NODE));
+	if (pNew == NULL)
+	{
+		printf("分配失败！\n");
+		exit(-1);
+	}
+
+	pNew->data = val;
+	
+	PNODE q = p->pNext;
+	p->pNext = pNew;
+	pNew->pNext = q;
+	return true;
+}
+
+bool delet_list(PNODE pHead, int pos, int* val)//val为删除的数值
+{
 
 }
