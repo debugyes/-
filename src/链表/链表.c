@@ -29,6 +29,18 @@ int main(void)
 	insert_list(pHead, 3, 10);
 	traverse_list(pHead);
 
+	//²âÊÔdelet_listÉ¾³ıÔªËØº¯Êı
+	int val;
+	if (delet_list(pHead, 1, &val))
+	{
+		printf("É¾³ı³É¹¦\n");
+		traverse_list(pHead);
+	}
+	else
+	{
+		printf("É¾³ıÊ§°Ü\n");
+	}
+
 	return 0;
 }
 

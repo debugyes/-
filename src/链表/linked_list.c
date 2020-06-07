@@ -126,5 +126,25 @@ bool insert_list(PNODE pHead, int pos, int val)
 
 bool delet_list(PNODE pHead, int pos, int* val)//val为删除的数值
 {
+	int i = 0;
+	PNODE p;
+	p = pHead;
+	while (p->pNext != NULL && i < pos-1)//在pos前一个位置停下
+	{
+		p = pHead->pNext;
+		i++;
+	}
+	if (p->pNext != NULL && i < pos-1)
+	{
+		return false;
+	}
 
+	PNODE q = p->pNext;
+	*val = q->data;
+
+	//删除p后面的节点
+	p->pNext = p->pNext->pNext;
+	free(q);
+	q = NULL;
+	return true;
 }
