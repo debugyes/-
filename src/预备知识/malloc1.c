@@ -1,6 +1,8 @@
 /*
 	malloc分配的数组可以和普通数组一样去使用
 	malloc分配的数组不会自动释放，必须要手动释放
+
+	malloc属于动态分配，在堆中分配
 */
 #include<stdio.h>
 #include<malloc.h>
@@ -20,7 +22,7 @@ int main(void)
 	
 	*pArr = 4;
 	pArr[1] = 10;
-	printf("%d %d\n", *pArr, pArr[1]);
+	printf("%d %d\n", *pArr, pArr[1]);//4 10
 
 	//free(pArr);//把pArr所代表的动态分配的20个字节的内存释放
 
