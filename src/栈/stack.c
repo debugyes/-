@@ -1,10 +1,34 @@
-#include<stdio.h>
-#include<malloc.h>
+/*
+	Õ»µÄËã·¨£º
+	1. Ñ¹Õ»
+	2. ³öÕ»
+	
+*/
 
-int mai(void)
+#include "stackHeader.h"
+
+void init(PSTACK pS)
 {
-	int i = 10;
-	int* p = (int*)malloc(100);
+	pS->pTop = (PNODE)malloc(sizeof(NODE));
+	if (pS->pTop == NULL)
+	{
+		printf("·ÖÅäÊ§°Ü");
+		exit(-1);
+	}
+	else
+	{
+		pS->pBotom = pS->pBotom;
+		pS->pBotom->pNext = NULL;
+	}
+}
+void push(PSTACK pS, int val)
+{
+	PNODE pNew = (PNODE)malloc(sizeof(NODE));
+	pNew->data = val;
+	pS->pTop->pNext = pNew;
+	pS->pTop = pNew;
+}
+int pull(PSTACK pS, int val)
+{
 
-	return 0;
 }
