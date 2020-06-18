@@ -19,7 +19,10 @@ typedef struct Stack
 
 void init(PSTACK pS); //PSTACK本身就等于struct Node*
 void push(PSTACK pS, int val);
-void pull(PSTACK pS, int val);
+bool pop(PSTACK pS, int val);
+void traverse(PSTACK pS);
+bool empty(PSTACK pS);
+void clear(PSTACK pS);
 
 
 
